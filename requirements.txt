@@ -1,37 +1,11 @@
-# Core dependencies - Streamlit Cloud compatible versions
-tensorflow==2.15.0
-numpy==1.24.3
-pandas==2.0.3
-scikit-learn==1.3.0
-matplotlib==3.7.2
-seaborn==0.12.2
-Pillow==10.0.0
-opencv-python-headless==4.8.0.76
-
-# Web interface
-streamlit==1.28.1
-plotly==5.15.0
-
-# Image processing
-albumentations==1.3.1
-
-# Model utilities
-scipy==1.11.1
-
-# Visualization - lightweight alternatives
-# grad-cam==1.4.8  # Comment out if causing issues
-
-# System monitoring - optional for deployment
-# psutil==5.9.5
-# GPUtil==1.4.0
-
-# Configuration
-PyYAML==6.0.1
-
-# Utilities
-tqdm==4.65.0
-
-# Remove heavy dependencies that aren't needed for inference
-# tensorflow-addons>=0.18.0  # Often causes issues
-# efficientnet>=1.1.1       # Can be replaced with tf.keras.applications
-# imgaug>=0.4.0             # Heavy dependency
+streamlit>=1.28.0
+numpy>=1.24.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.15.0
+Pillow>=10.0.0
+opencv-python-headless>=4.8.0
+scikit-learn>=1.3.0
+streamlit-option-menu>=0.3.6
+tensorflow>=2.16.1
