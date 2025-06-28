@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  chest-xray-ai:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./experiments:/app/experiments
+      - ./logs:/app/logs
+    environment:
+      - PYTHONPATH=/app
+      - TF_CPP_MIN_LOG_LEVEL=2
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+
+  # Optional: Add a database for storing results
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: chestxray_results
+      POSTGRES_USER: chestxray
+      POSTGRES_PASSWORD: secure_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
